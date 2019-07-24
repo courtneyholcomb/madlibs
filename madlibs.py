@@ -42,6 +42,44 @@ def greet_person():
                            compliment=compliment)
 
 
+@app.route('/game')
+def show_madlib_form():
+    """Display madlib form."""
+
+    response = request.args.get("game-response")
+
+    person = request.args.get("person")
+
+    if response == "no":
+        return render_template("goodbye.html",person=person)
+
+    elif response == "yes": 
+        return render_template("game.html")
+
+
+@app.route('/madlib')
+def show_madlib():
+    """Display filled-in madlib."""
+
+    adjective = request.args.get("adjective")
+    noun = request.args.get("noun")
+    noun2 = request.args.get("noun2")
+    noun3 = request.args.get("noun3")
+    pverb = request.args.get("pverb")
+    pverb2 = request.args.get("pverb2")
+    adverb = request.args.get("adverb")
+    adverb2 = request.args.get("adverb2")
+    adjective2 = request.args.get("adjective2")
+    adjective3 = request.args.get("adjective3")
+    adjective4 = request.args.get("adjective4")
+    verb = request.args.get("verb")
+
+    return render_template("madlib.html", noun=noun, noun2=noun2, noun3=noun3,
+        adjective=adjective, adjective2=adjective2, adjective3=adjective3,
+        adjective4=adjective4, pverb=pverb, pverb2=pverb2, adverb=adverb, 
+        adverb2=adverb2, verb=verb)
+
+
 if __name__ == '__main__':
     # Setting debug=True gives us error messages in the browser and also
     # "reloads" our web app if we change the code.
