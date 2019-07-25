@@ -45,6 +45,7 @@ def greet_person():
 @app.route('/game')
 def show_madlib_form():
     """Display madlib form."""
+    # stylesheet = request.args.get("/static/madlibs.css")
 
     response = request.args.get("game-response")
 
@@ -60,8 +61,13 @@ def show_madlib_form():
 @app.route('/madlib')
 def show_madlib():
     """Display filled-in madlib."""
+    rando_madlib = choice(["madlib.html", "madlib1.html", "madlib2.html"])
+
 
     adjective = request.args.get("adjective")
+    adjective2 = request.args.get("adjective2")
+    adjective3 = request.args.get("adjective3")
+    adjective4 = request.args.get("adjective4")
     noun = request.args.get("noun")
     noun2 = request.args.get("noun2")
     noun3 = request.args.get("noun3")
@@ -69,12 +75,9 @@ def show_madlib():
     pverb2 = request.args.get("pverb2")
     adverb = request.args.get("adverb")
     adverb2 = request.args.get("adverb2")
-    adjective2 = request.args.get("adjective2")
-    adjective3 = request.args.get("adjective3")
-    adjective4 = request.args.get("adjective4")
     verb = request.args.get("verb")
 
-    return render_template("madlib.html", noun=noun, noun2=noun2, noun3=noun3,
+    return render_template(rando_madlib, noun=noun, noun2=noun2, noun3=noun3,
         adjective=adjective, adjective2=adjective2, adjective3=adjective3,
         adjective4=adjective4, pverb=pverb, pverb2=pverb2, adverb=adverb, 
         adverb2=adverb2, verb=verb)

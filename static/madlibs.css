@@ -1,0 +1,23 @@
+/* 
+-change font family and size
+-bold some stuff
+-thicker border on input boxes
+-add a gif to our page (like goodbye page)
+-center stuff on the page
+*/
+
+form {
+    font-family: sans-serif;
+    font-size: 14;
+    text-align: center;
+
+}
+
+.instruction {
+    text-decoration: bold;
+}
+
+h2 {
+    text-align: center;
+}
+
